@@ -1,0 +1,134 @@
+%-------------------------
+% Arihant Jain - Resume
+% Single column, single typeface (XCharter), black text, blue links.
+% Compile with pdfLaTeX.
+%-------------------------
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{XCharter}
+\usepackage[letterspace=120]{microtype}
+\DisableLigatures{encoding=*,family=*}
+\usepackage[letterpaper,top=0.45in,bottom=0.45in,left=0.5in,right=0.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\definecolor{linkblue}{HTML}{1155CC}
+\usepackage[hidelinks]{hyperref}
+\usepackage{tabularx}
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{0pt}
+\raggedright
+\urlstyle{same}
+\emergencystretch=1em
+\hypersetup{pdftitle={Arihant Jain - Senior Backend Engineer Resume},pdfauthor={Arihant Jain}}
+
+\newcommand{\dash}{\textendash{}}
+\newcommand{\lnk}[2]{\href{#1}{\textcolor{linkblue}{\underline{#2}}}}
+
+% Section heading: letterspaced small caps, rule runs to the right margin
+\newcommand{\rsection}[1]{%
+  \par\vspace{9pt}%
+  {\bfseries\large\textls{\textsc{#1}}}\enspace
+  \leaders\hbox{\rule[0.3em]{1pt}{0.5pt}}\hfill\mbox{}%
+  \par\vspace{3pt}}
+
+% Employer line: bold name left, tenure right
+\newcommand{\employer}[2]{%
+  \par\vspace{6pt}%
+  \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+    \textbf{#1} & #2
+  \end{tabular*}\par}
+
+% Role line: italic title left, dates right
+\newcommand{\role}[2]{%
+  \par\vspace{1.5pt}%
+  \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+    \textit{#1} & \textit{#2}
+  \end{tabular*}\par}
+
+\newlist{bl}{itemize}{1}
+\setlist[bl]{label=\textbullet,leftmargin=0.17in,labelsep=0.08in,
+  itemsep=3.4pt,topsep=3.4pt,parsep=0pt,partopsep=0pt}
+
+\makeatletter
+\renewcommand\normalsize{\@setfontsize\normalsize{10}{12.2}}\normalsize
+\renewcommand\large{\@setfontsize\large{11.5}{14.2}}
+\makeatother
+\begin{document}
+
+%---------- HEADER ----------
+\begin{center}
+  {\fontsize{21}{24}\selectfont\bfseries\textls[60]{Arihant Jain}}\\[5pt]
+  New Delhi, India \enspace\textbar\enspace +91 8094221469 \enspace\textbar\enspace
+  \lnk{mailto:arihantjain416@gmail.com}{arihantjain416@gmail.com}\\[2pt]
+  \lnk{https://linkedin.com/in/arihant416}{linkedin.com/in/arihant416} \enspace\textbar\enspace
+  \lnk{https://github.com/Arihant416}{github.com/Arihant416} \enspace\textbar\enspace
+  \lnk{https://arihant416.vercel.app}{arihant416.vercel.app}
+\end{center}
+\vspace{-6pt}
+
+%---------- EXPERIENCE ----------
+\rsection{Experience}
+
+\employer{Perfios (Karza Technologies)}{Oct 2022 \dash{} Present}
+\role{Senior Software Engineer}{Apr 2024 \dash{} Present}
+\begin{bl}
+  \item Cut third-party vendor spend 55\% by replacing a fixed-order chain of data sources with threshold-based switching that routes around slow or failing ones; with caching and retired infrastructure, this delivered \textbf{\$700K+} in cumulative savings.
+  \item Brought incidents down from \textbf{12\dash13 a week to 2\dash3} with trend-based monitoring that automatically deprioritizes failing sources, and cut triage SLA from 3 days to 3\dash4 hours by introducing triage practices for support engineers.
+  \item Turned fleet-wide changes across \textbf{200+} production APIs from full redeploys into one package update by designing and rolling out a shared service framework that replaced duplicated per-API code.
+  \item Built a Redis-backed session library with distributed locks so concurrent Lambda runs share one login instead of racing to re-authenticate, eliminating \textbf{35\%} of session failures and recovering 15K\dash30K requests a day.
+  \item Designed and set up active-passive disaster recovery across Mumbai and Hyderabad for a \textbf{5M+} requests/day KYC platform at 99.9\%+ availability, built for a 40\dash45 minute switchover of databases, APIs, and gateway routing via GitLab CI/CD.
+  \item Built proxy-routing infrastructure for 120+ APIs that replaced random route selection with health-aware routing and cooldowns, raising first-attempt success from \textbf{60\dash70\% to 90\dash95\%}.
+\end{bl}
+
+\vspace{5pt}\role{Software Engineer I}{Oct 2022 \dash{} Apr 2024}
+\begin{bl}
+  \item Rebuilt a Lambda-based integration as long-running Celery workers on AWS Fargate with Redis that keep state between jobs, \textbf{tripling throughput}; caching and rate limiting then made an external vendor unnecessary.
+  \item Led a stack-by-stack migration of \textbf{250+} KYC and utility APIs from Python 3.9 to 3.12, containerizing over 90\% for cloud and on-premises deployment with zero production rollbacks.
+  \item Reduced P99 latency from \textbf{8s to 3s} on critical legacy client-facing KYC APIs by removing redundant ingestion steps and reworking each API's registry fetch strategy.
+  \item Automated vendor billing with a usage-tracking invoicing service used across products, improving billing accuracy by \textbf{25\%}.
+  \item Shipped \textbf{30+ APIs within six months} and maintained 100+ production APIs spanning 300+ data integrations.
+\end{bl}
+
+\employer{InTimeTec}{Mar 2021 \dash{} Sep 2022}
+\role{Software Engineer}{}
+\begin{bl}
+  \item Converted a manufacturing client's desktop-only .NET operations tool into an Angular web platform, expanding access from a handful of on-site staff to \textbf{\textasciitilde{}70} users, then built 6 new modules from scratch.
+  \item Owned end-to-end delivery and client communication for a 4-engineer pod, shortening deployment cycles by \textbf{44\%} with CI/CD pipelines and raising test coverage by 54\% with Karma/Jasmine suites.
+\end{bl}
+
+%---------- SKILLS ----------
+\rsection{Technical Skills}
+\vspace{2pt}\begin{tabularx}{\textwidth}{@{}>{\bfseries}l@{\hspace{12pt}}X@{}}
+Languages & \textbf{Python}, JavaScript (ES6+), SQL \\[2pt]
+Backend \& System Design & \textbf{FastAPI}, Node.js, Celery, REST APIs, Event-Driven and Microservices Architecture \\[2pt]
+Data \& Messaging & Redis, \textbf{MongoDB}, MySQL, RabbitMQ, Amazon SQS \\[2pt]
+Cloud \& Infrastructure & \textbf{AWS} (Lambda, Fargate, ECS, S3, CloudFormation), Docker, GitLab CI/CD \\[2pt]
+Observability, Security \& Testing & Prometheus, Grafana, AWS CloudWatch, Pytest, Playwright, Selenium, SAST, VAPT \\
+\end{tabularx}
+
+%---------- PROJECTS ----------
+\rsection{Projects}
+\vspace{2pt}
+\begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+  \textbf{Distributed Quota-Metering Engine} \enspace\textit{FastAPI, Redis Lua, MongoDB, Docker Compose} &
+  \lnk{https://github.com/Arihant416/quota-meter}{github.com/Arihant416/quota-meter}
+\end{tabular*}
+\begin{bl}
+  \item Engineered a per-organization quota service where one Redis Lua script atomically handles validation, idempotency, deduction, and denial logging, with all-or-nothing batches, idempotent refunds, and monthly resets without scheduled jobs.
+  \item Tested 10,000 concurrent requests with \textbf{zero over-serving}; retries with the same idempotency key used quota once.
+\end{bl}
+
+%---------- EDUCATION ----------
+\rsection{Education}
+\vspace{2pt}
+\begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+  \textbf{Swami Keshvanand Institute of Technology} \enspace\textit{B.Tech, Information Technology} & Aug 2017 \dash{} Jun 2021
+\end{tabular*}
+
+\end{document}
