@@ -1,16 +1,16 @@
 %-------------------------
 % Arihant Jain - Resume
-% Single column, single typeface (XCharter), black text, blue links.
+% Single column, Source Sans Pro, A4, black text, blue links.
 % Compile with pdfLaTeX.
 %-------------------------
-\documentclass[letterpaper,10pt]{article}
+\documentclass[a4paper,10pt]{article}
 
 \usepackage[english]{babel}
 \usepackage[T1]{fontenc}
-\usepackage{XCharter}
+\usepackage[default]{sourcesanspro}
 \usepackage[letterspace=120]{microtype}
 \DisableLigatures{encoding=*,family=*}
-\usepackage[letterpaper,top=0.45in,bottom=0.45in,left=0.5in,right=0.5in]{geometry}
+\usepackage[a4paper,top=0.45in,bottom=0.45in,left=0.5in,right=0.5in]{geometry}
 \usepackage{enumitem}
 \usepackage{xcolor}
 \definecolor{linkblue}{HTML}{1155CC}
@@ -33,7 +33,7 @@
 % Section heading: letterspaced small caps, rule runs to the right margin
 \newcommand{\rsection}[1]{%
   \par\vspace{9pt}%
-  {\bfseries\large\textls{\textsc{#1}}}\enspace
+  {\bfseries\textls[110]{\MakeUppercase{#1}}}\enspace
   \leaders\hbox{\rule[0.3em]{1pt}{0.5pt}}\hfill\mbox{}%
   \par\vspace{3pt}}
 
@@ -53,10 +53,10 @@
 
 \newlist{bl}{itemize}{1}
 \setlist[bl]{label=\textbullet,leftmargin=0.17in,labelsep=0.08in,
-  itemsep=3.4pt,topsep=3.4pt,parsep=0pt,partopsep=0pt}
+  itemsep=4.2pt,topsep=4.2pt,parsep=0pt,partopsep=0pt}
 
 \makeatletter
-\renewcommand\normalsize{\@setfontsize\normalsize{10}{12.2}}\normalsize
+\renewcommand\normalsize{\@setfontsize\normalsize{10}{13.0}}\normalsize
 \renewcommand\large{\@setfontsize\large{11.5}{14.2}}
 \makeatother
 \begin{document}
@@ -64,7 +64,7 @@
 %---------- HEADER ----------
 \begin{center}
   {\fontsize{21}{24}\selectfont\bfseries\textls[60]{Arihant Jain}}\\[5pt]
-  New Delhi, India \enspace\textbar\enspace +91 8094221469 \enspace\textbar\enspace
+  Senior Backend Engineer \enspace\textbar\enspace New Delhi, India \enspace\textbar\enspace +91 8094221469 \enspace\textbar\enspace
   \lnk{mailto:arihantjain416@gmail.com}{arihantjain416@gmail.com}\\[2pt]
   \lnk{https://linkedin.com/in/arihant416}{linkedin.com/in/arihant416} \enspace\textbar\enspace
   \lnk{https://github.com/Arihant416}{github.com/Arihant416} \enspace\textbar\enspace
@@ -78,11 +78,11 @@
 \employer{Perfios (Karza Technologies)}{Oct 2022 \dash{} Present}
 \role{Senior Software Engineer}{Apr 2024 \dash{} Present}
 \begin{bl}
-  \item Cut third-party vendor spend 55\% by replacing a fixed-order chain of data sources with threshold-based switching that routes around slow or failing ones; with caching and retired infrastructure, this delivered \textbf{\$700K+} in cumulative savings.
-  \item Brought incidents down from \textbf{12\dash13 a week to 2\dash3} with trend-based monitoring that automatically deprioritizes failing sources, and cut triage SLA from 3 days to 3\dash4 hours by introducing triage practices for support engineers.
+  \item Cut third-party vendor spend 55\% by replacing a fixed-order chain of data sources with threshold-based switching that routes around slow or failing ones; with caching and retired infrastructure, this saved \textbf{\$700K+} since Apr 2024.
+  \item Brought incidents down from \textbf{12\dash13 a week to 2\dash3} with trend-based monitoring that automatically deprioritizes failing sources, and cut triage SLA from 3 days to 3\dash4 hours by mentoring junior and support engineers on triage.
   \item Turned fleet-wide changes across \textbf{200+} production APIs from full redeploys into one package update by designing and rolling out a shared service framework that replaced duplicated per-API code.
   \item Built a Redis-backed session library with distributed locks so concurrent Lambda runs share one login instead of racing to re-authenticate, eliminating \textbf{35\%} of session failures and recovering 15K\dash30K requests a day.
-  \item Designed and set up active-passive disaster recovery across Mumbai and Hyderabad for a \textbf{5M+} requests/day KYC platform at 99.9\%+ availability, built for a 40\dash45 minute switchover of databases, APIs, and gateway routing via GitLab CI/CD.
+  \item Designed and set up multi-region active-passive disaster recovery (Mumbai, Hyderabad) for a \textbf{5M+} requests/day fintech KYC platform at 99.9\%+ availability, built for a 40\dash45 minute switchover of databases, APIs, and gateway routing via GitLab CI/CD.
   \item Built proxy-routing infrastructure for 120+ APIs that replaced random route selection with health-aware routing and cooldowns, raising first-attempt success from \textbf{60\dash70\% to 90\dash95\%}.
 \end{bl}
 
@@ -96,7 +96,7 @@
 \end{bl}
 
 \employer{InTimeTec}{Mar 2021 \dash{} Sep 2022}
-\role{Software Engineer}{}
+\role{Software Engineer, promoted from Intern (Mar \dash{} Aug 2021)}{Aug 2021 \dash{} Sep 2022}
 \begin{bl}
   \item Converted a manufacturing client's desktop-only .NET operations tool into an Angular web platform, expanding access from a handful of on-site staff to \textbf{\textasciitilde{}70} users, then built 6 new modules from scratch.
   \item Owned end-to-end delivery and client communication for a 4-engineer pod, shortening deployment cycles by \textbf{44\%} with CI/CD pipelines and raising test coverage by 54\% with Karma/Jasmine suites.
@@ -106,9 +106,9 @@
 \rsection{Technical Skills}
 \vspace{2pt}\begin{tabularx}{\textwidth}{@{}>{\bfseries}l@{\hspace{12pt}}X@{}}
 Languages & \textbf{Python}, JavaScript (ES6+), SQL \\[2pt]
-Backend \& System Design & \textbf{FastAPI}, Node.js, Celery, REST APIs, Event-Driven and Microservices Architecture \\[2pt]
+Backend \& System Design & \textbf{FastAPI}, Node.js, Celery, REST APIs, Microservices, Event-Driven, Distributed Systems \\[2pt]
 Data \& Messaging & Redis, \textbf{MongoDB}, MySQL, RabbitMQ, Amazon SQS \\[2pt]
-Cloud \& Infrastructure & \textbf{AWS} (Lambda, Fargate, ECS, S3, CloudFormation), Docker, GitLab CI/CD \\[2pt]
+Cloud \& Infrastructure & \textbf{AWS} (Lambda, Fargate, ECS, S3, CloudFormation/IaC), Docker, GitLab CI/CD \\[2pt]
 Observability, Security \& Testing & Prometheus, Grafana, AWS CloudWatch, Pytest, Playwright, Selenium, SAST, VAPT \\
 \end{tabularx}
 
@@ -121,7 +121,7 @@ Observability, Security \& Testing & Prometheus, Grafana, AWS CloudWatch, Pytest
 \end{tabular*}
 \begin{bl}
   \item Engineered a per-organization quota service where one Redis Lua script atomically handles validation, idempotency, deduction, and denial logging, with all-or-nothing batches, idempotent refunds, and monthly resets without scheduled jobs.
-  \item Tested 10,000 concurrent requests with \textbf{zero over-serving}; retries with the same idempotency key used quota once.
+  \item Load-tested 1,000 requests from 50 concurrent workers across 3 instances: \textbf{zero over-serving}; retries charged once.
 \end{bl}
 
 %---------- EDUCATION ----------
